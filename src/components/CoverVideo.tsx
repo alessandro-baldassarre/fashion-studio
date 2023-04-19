@@ -83,7 +83,7 @@ function CoverVideo({ }: Props) {
                     <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.06" data-scroll-speed="4">n</motion.h1>
                     <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.04" data-scroll-speed="4">t</motion.h1>
                 </div>
-                <h2 data-scroll data-scroll-delay="0.04" data-scroll-speed="4">Inspire. Create. Believe</h2>
+                <motion.h2 variants={itemVariants} data-scroll data-scroll-delay="0.04" data-scroll-speed="4">Inspire. Create. Believe</motion.h2>
             </Title>
             <video src={MainVideo} typeof="video/mp4" autoPlay muted loop />
         </VideoContainer>

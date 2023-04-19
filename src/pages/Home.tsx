@@ -5,6 +5,7 @@ import styled from 'styled-components'
 // INTERNAL IMPORTS
 import CoverVideo from '@/components/CoverVideo'
 import Logo from '@/components/Logo'
+import NavBar from '@/components/NavBar'
 
 type Props = {}
 
@@ -19,6 +20,7 @@ function Home({ }: Props): ReactElement {
         <Section>
             <CoverVideo />
             <Logo />
+            <NavBar />
         </Section>
     )
 }

@@ -1,5 +1,6 @@
+import { DefaultTheme } from "styled-components";
 
-export const dark = {
+export const dark: DefaultTheme = {
     body: '#202020', // black shade
     text: '#fff',
     bodyRgba: '32,32,32',
