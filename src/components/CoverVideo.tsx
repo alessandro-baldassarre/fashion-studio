@@ -1,5 +1,6 @@
 // GLOBAL IMPORTS
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 // INTERNAL IMPORTS
 import MainVideo from "@/assets/Walking Girl.mp4"
@@ -27,7 +28,7 @@ z-index:1;
 
 background-color: ${props => `rgba(${props.theme.bodyRgba},0.6)`};
 `
-const Title = styled.div`
+const Title = styled(motion.div)`
 position:absolute;
 top:0;
 bottom:0;
@@ -60,17 +61,27 @@ h2{
     text-transform: capitalize;
 }
 `
+const containerVariants = {
+    hidden: { opacity: 0, pathLength: 0 },
+    show: {
+        opacity: 1, pathLength: 1, transition: { delayChildren: 2, staggerChildren: 0.3 }
+    },
+}
 
+const itemVariants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+}
 function CoverVideo({ }: Props) {
     return (
         <VideoContainer>
             <DarkOverlay />
-            <Title>
+            <Title variants={containerVariants} initial="hidden" animate="show" >
                 <div>
-                    <h1 data-scroll data-scroll-delay="0.13" data-scroll-speed="4">W</h1>
-                    <h1 data-scroll data-scroll-delay="0.09" data-scroll-speed="4">i</h1>
-                    <h1 data-scroll data-scroll-delay="0.06" data-scroll-speed="4">b</h1>
-                    <h1 data-scroll data-scroll-delay="0.04" data-scroll-speed="4">e</h1>
+                    <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.13" data-scroll-speed="4">W</motion.h1>
+                    <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.09" data-scroll-speed="4">a</motion.h1>
+                    <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.06" data-scroll-speed="4">n</motion.h1>
+                    <motion.h1 variants={itemVariants} data-scroll data-scroll-delay="0.04" data-scroll-speed="4">t</motion.h1>
                 </div>
                 <h2 data-scroll data-scroll-delay="0.04" data-scroll-speed="4">Inspire. Create. Believe</h2>
             </Title>

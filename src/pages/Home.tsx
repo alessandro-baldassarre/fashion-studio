@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 // INTERNAL IMPORTS
 import CoverVideo from '@/components/CoverVideo'
+import Logo from '@/components/Logo'
 
 type Props = {}
 
@@ -17,6 +18,7 @@ function Home({ }: Props): ReactElement {
     return (
         <Section>
             <CoverVideo />
+            <Logo />
         </Section>
     )
 }

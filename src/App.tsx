@@ -8,6 +8,7 @@ import "locomotive-scroll/dist/locomotive-scroll.css"
 import Home from "@/pages/Home"
 import GlobalStyles from "@/styles/GlobalStyles"
 import { dark } from "@/styles/Themes"
+import { AnimatePresence } from "framer-motion"
 
 function App(): ReactElement {
 
@@ -19,9 +20,11 @@ function App(): ReactElement {
 
             <ThemeProvider theme={dark}>
                 <LocomotiveScrollProvider options={{ smooth: true }} watch={[]} containerRef={containerRef}>
-                    <main data-scroll-container ref={containerRef}>
-                        <Home />
-                    </main>
+                    <AnimatePresence>
+                        <main data-scroll-container ref={containerRef}>
+                            <Home />
+                        </main>
+                    </AnimatePresence>
                 </LocomotiveScrollProvider>
             </ThemeProvider>
 
