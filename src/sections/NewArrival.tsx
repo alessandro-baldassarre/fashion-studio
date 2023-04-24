@@ -159,7 +159,7 @@ function NewArrival() {
 
 
     return (
-        <Section ref={sectionRef}>
+        <Section ref={sectionRef} id="new-arrival">
             <Overlay />
             <Title data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">New Arrivals</Title>
 

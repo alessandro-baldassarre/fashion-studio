@@ -17,7 +17,7 @@ overflow:hidden;
 
 function Home({ }: Props): ReactElement {
     return (
-        <Section>
+        <Section id="home">
             <CoverVideo />
             <Logo />
             <NavBar />

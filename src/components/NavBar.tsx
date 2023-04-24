@@ -2,6 +2,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import { useLocomotiveScroll } from "react-locomotive-scroll"
 
 const NavContainer = styled(motion.div) <{ isMenuClicked: boolean }>`
 width:100vw;
@@ -66,14 +67,26 @@ type Props = {}
 function NavBar({ }: Props) {
     const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false)
 
+    const { scroll } = useLocomotiveScroll()
+
+    const handleScroll = (id: string) => {
+        let el = document.querySelector(id);
+        setIsMenuClicked(!isMenuClicked)
+
+        scroll.scrollTo(el, {
+            offset: '-100',
+            duration: '2000',
+            easing: [0.25, 0.0, 0.35, 1.0]
+        })
+    }
     return (
         <NavContainer isMenuClicked={isMenuClicked} initial={{ y: '-100%' }} animate={{ y: 0 }} transition={{ duration: 2, delay: 2 }}>
             <MenuList drag="y" dragConstraints={{ top: 0, bottom: 70 }} dragElastic={0.05} dragSnapToOrigin>
                 <MenuBtn onClick={() => setIsMenuClicked(!isMenuClicked)}>Menu</MenuBtn>
-                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }}>home</MenuItem>
-                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }}>about</MenuItem>
-                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }}>shop</MenuItem>
-                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }}>new arrival</MenuItem>
+                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }} onClick={() => handleScroll('#home')}>home</MenuItem>
+                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }} onClick={() => handleScroll('.about')}>about</MenuItem>
+                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }} onClick={() => handleScroll('#shop')}>shop</MenuItem>
+                <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }} onClick={() => handleScroll('#new-arrival')}>new arrival</MenuItem>
             </MenuList>
         </NavContainer>
     )

@@ -178,7 +178,7 @@ function Shop() {
 
 
     return (
-        <Section ref={sectionRef}>
+        <Section ref={sectionRef} id="shop">
             <Title data-scroll data-scroll-speed="-1">New collection</Title>
             <Left>
                 <p>
