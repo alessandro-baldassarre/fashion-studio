@@ -3,13 +3,16 @@ import { ReactElement, useRef } from "react"
 import { LocomotiveScrollProvider } from "react-locomotive-scroll"
 import { ThemeProvider } from "styled-components"
 import "locomotive-scroll/dist/locomotive-scroll.css"
+import { AnimatePresence } from "framer-motion"
 
 // INTERNAL IMPORTS
 import Home from "@/sections/Home"
 import GlobalStyles from "@/styles/GlobalStyles"
 import { dark } from "@/styles/Themes"
-import { AnimatePresence } from "framer-motion"
 import About from "@/sections/About"
+import Shop from "@/sections/Shop"
+import ScrollTriggerProxy from "@/components/ScrollTriggerProxy"
+import Banner from "./sections/Banner"
 
 function App(): ReactElement {
 
@@ -21,10 +24,13 @@ function App(): ReactElement {
 
             <ThemeProvider theme={dark}>
                 <LocomotiveScrollProvider options={{ smooth: true }} watch={[]} containerRef={containerRef}>
+                    <ScrollTriggerProxy />
                     <AnimatePresence>
-                        <main data-scroll-container ref={containerRef}>
+                        <main className="App" data-scroll-container ref={containerRef}>
                             <Home />
                             <About />
+                            <Shop />
+                            <Banner />
                         </main>
                     </AnimatePresence>
                 </LocomotiveScrollProvider>
