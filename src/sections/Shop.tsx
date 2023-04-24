@@ -143,7 +143,6 @@ function Shop() {
                             scroller: '.App', // locomotive element
                             scrub: true,
                             pin: true,
-                            markers: true
                         },
                         height: `${scrollingElement.scrollWidth}px`,
                         ease: 'none',
@@ -157,7 +156,6 @@ function Shop() {
                             end: pinWrapWidth,
                             scroller: '.App', // locomotive element
                             scrub: true,
-                            markers: true,
                         },
                         x: -pinWrapWidth,
                         ease: 'none',
@@ -171,6 +169,8 @@ function Shop() {
 
             return () => {
                 clearTimeout(id)
+                t1.kill();
+                ScrollTrigger.killAll();
             }
         }
 
