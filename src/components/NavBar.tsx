@@ -15,6 +15,10 @@ justify-content:center;
 align-items:center;
 
 transition: all 0.3s ease;
+
+@media (max-width:40em){
+top: ${props => props.isMenuClicked ? '0' : `calc(-50vh - 4rem)`};
+}
 `
 const MenuBtn = styled.li`
 background-color: ${props => `rgba(${props.theme.textRgba},0.7)`};
@@ -40,6 +44,11 @@ text-transform: uppercase;
 
 cursor:pointer;
 
+@media (max-width:40em){
+width:10rem;
+height:2rem;
+}
+
 `
 const MenuList = styled(motion.ul)`
 position:relative;
@@ -54,12 +63,23 @@ align-items: center;
 
 width: 100%;
 padding: 0 10rem;
+
+@media (max-width:40em){
+flex-direction:column;
+padding:2rem 0;
+height:50vh;
+}
 `
 
 const MenuItem = styled(motion.li)`
 text-transform: uppercase;
 color: ${props => props.theme.text};
 cursor: pointer;
+
+@media (max-width:40em){
+flex-direction:column;
+padding:0.5rem 0;
+}
 `
 
 type Props = {}
@@ -80,7 +100,7 @@ function NavBar({ }: Props) {
         })
     }
     return (
-        <NavContainer isMenuClicked={isMenuClicked} initial={{ y: '-100%' }} animate={{ y: 0 }} transition={{ duration: 2, delay: 2 }}>
+        <NavContainer isMenuClicked={isMenuClicked} initial={{ y: '-100%' }} animate={{ y: 0 }} transition={{ duration: 2, delay: 5 }}>
             <MenuList drag="y" dragConstraints={{ top: 0, bottom: 70 }} dragElastic={0.05} dragSnapToOrigin>
                 <MenuBtn onClick={() => setIsMenuClicked(!isMenuClicked)}>Menu</MenuBtn>
                 <MenuItem whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9, y: 0 }} onClick={() => handleScroll('#home')}>home</MenuItem>

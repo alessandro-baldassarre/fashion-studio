@@ -10,6 +10,10 @@ position:absolute;
 top:1rem;
 left:1rem;
 
+@media (max-width:64em){
+top:2rem;
+}
+
 color:${props => props.theme.text};
 z-index:5;
 
@@ -35,14 +39,14 @@ a{
 const pathVariants = {
     hidden: { opacity: 0, pathLength: 0 },
     visible: {
-        opacity: 1, pathLength: 1, transition: { duration: 2, ease: "easeInOut" }
+        opacity: 1, pathLength: 1, transition: { duration: 2, delay: 3, ease: "easeInOut" }
     },
 }
 
 const textVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
-        opacity: 1, x: -5, transition: { duration: 2, delay: 2, ease: "easeInOut" }
+        opacity: 1, x: -5, transition: { duration: 2, delay: 5, ease: "easeInOut" }
     },
 }
 
